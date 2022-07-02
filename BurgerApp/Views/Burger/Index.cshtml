@@ -1,0 +1,7 @@
+﻿@model IEnumerable<BurgerViewModel>
+<ul>
+    @foreach(BurgerViewModel burger in @Model)
+    {
+        @Html.Partial("../Partials/_BurgerInfo.cshtml", burger)
+    }
+</ul>

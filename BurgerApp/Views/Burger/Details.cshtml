@@ -1,0 +1,29 @@
+﻿@model Burger
+    <h2><b>Burger Name: </b><i>@Model.Name</i></h2>
+    @if (@Model.IsVegetarian)
+    {
+        <h4 style="color: green"><i>VEGETARIAN</i></h4>
+    }
+    else
+    {
+        <h4 style="color: red"><i>NOT VEGETARIAN</i></h4>
+    }
+    @if (@Model.IsVegan)
+    {
+        <h4 style="color: green"><i>VEGAN</i></h4>
+    }
+    else
+    {
+        <h4 style="color: red"><i>NOT VEGAN</i></h4>
+    }
+    <ul>
+        @foreach(Ingredient ingredient in @Model.Ingredients)
+        {
+            <li><i>@ingredient.Name</i></li>
+        }
+    </ul>
+    @if (@Model.HasFries)
+    {
+        <h4 style="color: green"><i>With Fries</i></h4>
+    }
+<h3><b>Price: </b><i>@Model.Price MKD</i></h3>

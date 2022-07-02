@@ -1,0 +1,20 @@
+﻿@model OrderViewModel
+<h1>Order ID: @Model.Id</h1>
+<h3>Name: @Model.FullName</h3>
+<h4>Adress: @Model.Address</h4>
+@if (@Model.IsDelievered)
+{
+    <h3 style="color:green"><i>DELIVERED</i></h3>
+}
+else
+{
+    <h3 style="color:red"><i>NOT DELIEVERED</i></h3>
+}
+<h5>Location: @Model.Location</h5>
+<h5>Burgers: </h5> 
+<ul>
+    @foreach(Burger burger in @Model.Burgers)
+    {
+        <li><i>@burger.Name</i></li>
+    }
+</ul>
