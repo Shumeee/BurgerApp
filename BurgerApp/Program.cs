@@ -1,17 +1,26 @@
 using BurgerApp.Contracts.Services;
 using BurgerApp.Domain.Repositories;
 using BurgerApp.Services;
+using BurgerApp.Storage.Database.Context;
 using BurgerApp.Storage.Repository;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+// EntityFramework Database
+//string databaseConnectionString = builder.Configuration.GetConnectionString("Database");
 
 builder.Services.AddScoped<IOrderService, OrderService>() // This is the dependency injection
                 .AddScoped<IOrderRepository, OrderRepository>()
                 .AddScoped<IBurgerService, BurgerService>()
                 .AddScoped<IBurgerRepository, BurgerRepository>();
+                //.AddDbContext<BurgerDbContext>(options =>
+                //{
+                //    options.UseSqlServer(databaseConnectionString);
+                //})
+                //.AddScoped<IBurgerDbContext, BurgerDbContext>();
 
 var app = builder.Build();
 

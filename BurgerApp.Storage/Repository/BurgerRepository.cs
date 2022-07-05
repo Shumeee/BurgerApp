@@ -10,5 +10,14 @@ namespace BurgerApp.Storage.Repository
         {
             return BurgerDatabase.BURGERS;
         }
+
+        public Burger GetBurger(int id)
+        {
+            return BurgerDatabase.BURGERS.SingleOrDefault(x => x.Id == id);
+        }
+        public IReadOnlyList<Burger> GetBurgers(Burger burger)
+        {
+            return BurgerDatabase.BURGERS.Where(x => x.Id == burger.Id).ToArray();
+        }
     }
 }

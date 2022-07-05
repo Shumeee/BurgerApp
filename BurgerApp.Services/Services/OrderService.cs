@@ -9,9 +9,11 @@ namespace BurgerApp.Services
     public class OrderService : IOrderService
     {
         private readonly IOrderRepository _orderRepository;
-        public OrderService(IOrderRepository orderRepository)
+        private readonly IBurgerRepository _burgerRepository;
+        public OrderService(IOrderRepository orderRepository, IBurgerRepository burgerRepository)
         {
             _orderRepository = orderRepository;
+            _burgerRepository = burgerRepository;
         }
         public IReadOnlyList<OrderViewModel> GetAllOrders()
         {
@@ -47,6 +49,7 @@ namespace BurgerApp.Services
         public void AddOrder(OrderViewModel order)
         {
             int index = _orderRepository.GetAllOrders().Count() + 1;
+           // var burger = _burgerRepository.GetBurgers(order.Burgers);
             Order newOrder = new Order(index, order.FullName, order.Address, order.IsDelievered, order.Burgers, order.Location);
 
             _orderRepository.Add(newOrder);
