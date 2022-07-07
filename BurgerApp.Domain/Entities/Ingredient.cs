@@ -1,14 +1,17 @@
 ﻿namespace BurgerApp.Domain.Entities
 {
-    public class Ingredient
+    public class Ingredient : BaseEntity
     {
-        public int Id { get; set; }
         public string Name { get; set; }
-
         public Ingredient(int id, string name)
         {
             Id = id;
             Name = name;
+        }
+
+        public Ingredient()
+        {
+
         }
     }
 }

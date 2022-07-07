@@ -1,0 +1,15 @@
+﻿MUST HAVE NuGets:
+1. Microsoft.EntityFrameworkCore
+2. Microsoft.EntityFrameworkCore.Design
+3. Microsoft.EntityFrameworkCore.SqlServer
+4. Microsoft.EntityFrameworkCore.Tools
+
+Creating a framework:
+1. Create a class [DATABASE]DbContext (Storage -> Database -> Context -> DbContext)
+2. Create an interface I[INTERFACE]DbContext (Storage -> Database -> Context -> IDbContext)
+3. Add a connection string (appsettings.json -> ConnectionStrings -> Database)
+4. Project.cs -> string databaseConnectionString = builder.Configuration.GetConnectionString("Database");
+5. Project.cs -> builder.Services.AddDbContext<DbContext>(options => {
+                    options.UseSqlServer(databaseConnectionString);
+                })
+6. Tools -> NuGet Package Manager -> Package Manager Console -> Type: Add-Migration [Migration]

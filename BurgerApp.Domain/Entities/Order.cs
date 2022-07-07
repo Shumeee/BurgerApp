@@ -1,8 +1,7 @@
 ﻿namespace BurgerApp.Domain.Entities
 {
-    public class Order
+    public class Order : BaseEntity
     {
-        public int Id { get; set; }
         public string FullName { get; set; }
         public string Address { get; set; }
         public bool IsDelievered { get; set; }
@@ -17,6 +16,11 @@
             IsDelievered = isDelievered;
             Burgers = burgers;
             Location = location;
+        }
+
+        public Order()
+        {
+
         }
     }
 }

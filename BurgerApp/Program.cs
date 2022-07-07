@@ -10,17 +10,17 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 // EntityFramework Database
-//string databaseConnectionString = builder.Configuration.GetConnectionString("Database");
+string databaseConnectionString = builder.Configuration.GetConnectionString("Database"); // Getting the connection string
 
 builder.Services.AddScoped<IOrderService, OrderService>() // This is the dependency injection
                 .AddScoped<IOrderRepository, OrderRepository>()
                 .AddScoped<IBurgerService, BurgerService>()
-                .AddScoped<IBurgerRepository, BurgerRepository>();
-                //.AddDbContext<BurgerDbContext>(options =>
-                //{
-                //    options.UseSqlServer(databaseConnectionString);
-                //})
-                //.AddScoped<IBurgerDbContext, BurgerDbContext>();
+                .AddScoped<IBurgerRepository, BurgerRepository>()
+                .AddDbContext<BurgerDbContext>(options =>
+                {
+                    options.UseSqlServer(databaseConnectionString); // Passing the connection string
+                })
+                .AddScoped<IBurgerDbContext, BurgerDbContext>();
 
 var app = builder.Build();
 

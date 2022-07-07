@@ -1,0 +1,5 @@
+﻿The Repository is used for abstracting how data is persisted or retrieved from a database. 
+The idea behind the Repository is to decouple the data access layer from the business access 
+layer of the application so that the operations (such as adding, updating, deleting, 
+and selecting items from the collection) is done through straightforward methods without dealing 
+with database concerns such as connections, commands, and so forth.

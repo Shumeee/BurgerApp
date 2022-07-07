@@ -1,7 +1,7 @@
 ﻿using BurgerApp.Domain.Entities;
 using BurgerApp.Domain.Repositories;
 using BurgerApp.Storage.Database;
-
+// This is a repository for orders where we communicate with the database
 namespace BurgerApp.Storage.Repository
 {
     public class OrderRepository : IOrderRepository

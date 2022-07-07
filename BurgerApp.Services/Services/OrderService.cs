@@ -42,7 +42,6 @@ namespace BurgerApp.Services
         public void DeleteOrder(int id)
         {
             Order order = _orderRepository.GetOrderById(id);
-
             _orderRepository.Remove(order);
         }
 

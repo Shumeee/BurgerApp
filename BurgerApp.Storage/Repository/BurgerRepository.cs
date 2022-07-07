@@ -1,7 +1,7 @@
 ﻿using BurgerApp.Domain.Entities;
 using BurgerApp.Domain.Repositories;
 using BurgerApp.Storage.Database;
-
+// This is a repository for burgers where we communicate with the database
 namespace BurgerApp.Storage.Repository
 {
     public class BurgerRepository : IBurgerRepository
@@ -10,7 +10,6 @@ namespace BurgerApp.Storage.Repository
         {
             return BurgerDatabase.BURGERS;
         }
-
         public Burger GetBurger(int id)
         {
             return BurgerDatabase.BURGERS.SingleOrDefault(x => x.Id == id);
